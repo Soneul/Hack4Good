@@ -13,11 +13,11 @@ export default function HomePage() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
             <Link href="/about" passHref>
-              <Button href="#" color="primary" variant="outlined">
+              <Button color="primary" variant="outlined">
                 Log in
               </Button>
             </Link>
-            <Button href="#" color="primary" variant="contained">
+            <Button color="primary" variant="contained">
               Sign up
             </Button>
           </Box>
