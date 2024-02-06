@@ -1,8 +1,3 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
-  "rules": {
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  }
+  "extends": "next/core-web-vitals"
 }
