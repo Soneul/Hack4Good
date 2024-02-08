@@ -6,6 +6,11 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
+:root, body {
+  padding: 0;
+  margin: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
