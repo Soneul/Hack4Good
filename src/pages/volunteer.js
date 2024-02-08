@@ -1,96 +1,136 @@
 import React, { useState } from "react";
 import NavigationBar from "../components/NavigationBar";
-import { Typography, Button, Box, Container, Grid, Paper } from "@mui/material";
+import { Typography, TextField, Button, Box, Container, Grid, Paper } from "@mui/material";
 
 export default function Volunteer() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  // Function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here you would usually collect the data and do something with it
+  };
+
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}> {/* This Box is now a flex container */}
       {/* AppBar with navigation links */}
       <NavigationBar value={value} handleChange={handleChange} />
 
       {/* Main image section */}
-      <Container maxWidth="lg" component="main" sx={{ pt: 8, pb: 6 }}>
+      <Container 
+        maxWidth="lg" 
+        component="main" 
+        sx={{ 
+          pt: 8, 
+          pb: 6,
+          backgroundImage: `linear-gradient(rgba(23, 44, 130, 0.3), rgba(23, 44, 130, 0.3)), url('hands-together.png')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '240px', 
+        }}
+      >
         <Typography
           component="h1"
           variant="h2"
           align="center"
-          color="textPrimary"
+          color="white"
           gutterBottom
         >
-          Volunteer
+          Volunteer With Us
         </Typography>
         <Typography
           variant="h5"
           align="center"
-          color="textSecondary"
+          color="white"
           component="p"
         >
-          Slogan.
+          Join us in making a difference in the lives of others.
         </Typography>
       </Container>
 
-      {/* Action buttons */}
-      <Container maxWidth="md" component="main">
-        <Grid container spacing={5} justifyContent="center">
-          <Grid item>
-            <Button variant="contained" color="primary" size="large">
-              Donate
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button variant="outlined" color="primary" size="large">
-              Volunteer
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
-
-      {/* Explore Opportunities section */}
-      <Container maxWidth="md" component="section" sx={{ py: 8 }}>
-        <Typography
-          variant="h4"
-          align="center"
-          color="textPrimary"
-          gutterBottom
-        >
-          Explore Opportunities
-        </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          {/* Temporary items mapped here */}
-          {[...Array(3)].map((_, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <Paper
-                elevation={0}
-                sx={{
-                  padding: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" component="h3" gutterBottom>
-                  {`Opportunity ${index + 1}`}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Description for opportunity {index + 1}. Summarize the details
-                  here.
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{ marginTop: "auto" }}
+      <Container maxWidth="lg" component="main" sx={{ flexGrow: 1, pt: 8, pb: 6, backgroundColor: '#172c60' }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={8}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="h6" gutterBottom>
+                Volunteer Form
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                Fill out the form below to volunteer with us.
+              </Typography>
+              <form onSubmit={handleSubmit}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  margin="auto"
+                  padding={2}
                 >
-                  Learn More
-                </Button>
-              </Paper>
-            </Grid>
-          ))}
+                  <TextField
+                    label="Name"
+                    name="name"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                  />
+                  <TextField
+                    label="Email"
+                    name="email"
+                    type="email"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                  />
+                  <TextField
+                    label="Contact Number"
+                    name="contactNumber"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                  />
+                  <TextField
+                    label="Address"
+                    name="address"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                  />
+                  <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
+                    Submit
+                  </Button>
+                </Box>
+              </form>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+                height: 240,
+              }}
+            >
+              <Typography variant="h6" gutterBottom>
+                Frequently Asked Questions
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                Click on the tabs below to find answers to common questions.
+              </Typography>
+            </Paper>
+          </Grid>
         </Grid>
       </Container>
     </Box>
