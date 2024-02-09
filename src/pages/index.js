@@ -37,13 +37,57 @@ export default function HomePage() {
     <Box>
       {/* AppBar with navigation links */}
       <NavigationBar value={value} handleChange={handleChange} />
-      <Box sx={{ position: 'absolute', top: 134, left: 96, width: '80%', height: '120%', backgroundColor: 'rgba(23, 44, 96, 1.0)', padding: '16px', textAlign: 'center' , zIndex: -3 }}></Box>
-      <Box sx={{ position: 'absolute', top: 134, left: 96, width: '80%', height: '50%', backgroundColor: 'rgba(23, 44, 96, 0.4)', padding: '16px', textAlign: 'center' , zIndex: -1 }}></Box>
-      <img
-                    src={"/hands-together.png"}
-                    alt={"Big At Heart"}
-                    style={{ position: 'absolute',  top: 134, left: 96, width: '82.8%', height: '46%', objectFit: 'cover', border: 'none' , zIndex: -2}} // Removed border
-                  />
+      <Box sx={{ 
+        marginX: "auto", 
+        position: 'absolute',
+        top: { xs: '8vh', sm: '10vh', md: '12vh' }, // Example of responsive top positioning
+        left: { xs: '0%', sm: '1.8%', md: '1.8%' }, // Responsive left positioning
+        width: { xs: '95%', sm: '92%', md: '93%' }, // Responsive width
+        height: '150%', // Responsive height
+        backgroundColor: 'rgba(23, 44, 96, 1.0)',
+        padding: '16px',
+        textAlign: 'center',
+        zIndex: -3
+      }}> 
+      </Box>
+      <Box sx={{ 
+        marginX: "auto", 
+        position: 'absolute',
+        top: { xs: '25vh', sm: '12vh', md: '15vh' }, // Example of responsive top positioning
+        left: { xs: '0%', sm: '1.8%', md: '1.8%' }, // Responsive left positioning
+        width: { xs: '95%', sm: '92%', md: '93%' }, // Responsive width
+        height: '70%', // Responsive height
+        backgroundColor: 'rgba(23, 44, 96, 0.4)',
+        padding: '16px',
+        textAlign: 'center',
+        zIndex: -1
+      }}> 
+      </Box>
+   
+      {/* Image and overlay with the same width as the solid blue box but shorter in height */}
+      <Box sx={{ 
+        position: 'absolute', 
+        top: { xs: '25vh', sm: '12vh', md: '15vh' },
+        left: '49.8%',
+        width: { xs: '95%', sm: '93%', md: '93%' }, // Same width settings as the solid blue box
+        transform: 'translateX(-50%)',
+        zIndex: -2,
+      }}>
+        <img
+          src={"/hands-together.png"}
+          alt={"Big At Heart"}
+          style={{ 
+            width: '103.5%', 
+            height: 'auto', // Adjust based on the aspect ratio of your image
+            maxHeight: '60vh', // Example to make it shorter, adjust as needed
+            objectFit: 'cover', 
+            position: 'absolute', 
+            left: '50%', 
+            top: '0',
+            transform: 'translateX(-50%)',
+          }}
+        />
+      </Box>
       {/* Main image section */}
       <Container maxWidth="lg" component="main" sx={{ pt: 8, pb: 6 , zIndex: 2}}>
         <Typography
